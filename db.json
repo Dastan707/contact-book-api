@@ -1,0 +1,32 @@
+{
+  "contacts": [
+    {
+      "name": "123",
+      "surname": "11",
+      "email": "123",
+      "phone": "123",
+      "id": 1619173137851
+    },
+    {
+      "name": "Dastan",
+      "surname": "Jetigenov",
+      "email": "jetigenov0707@gmail.com",
+      "phone": "0702279797",
+      "id": 1619175247758
+    },
+    {
+      "name": "Adilet",
+      "surname": "Maadanov",
+      "email": "111@gmail.com",
+      "phone": "0708041182",
+      "id": 1619175302434
+    },
+    {
+      "name": "",
+      "surname": "",
+      "email": "",
+      "phone": "",
+      "id": 1619180783086
+    }
+  ]
+}
