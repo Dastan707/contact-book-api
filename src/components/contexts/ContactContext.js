@@ -36,7 +36,7 @@ const ContactContextProvider = ({children}) => {
 
 
     const addContact = async(newContact) => {
-        await axios.post('${JSON_API}/contacts', newContact)
+        await axios.post(`${JSON_API}/contacts`, newContact)
         getContactsData()
     }
    

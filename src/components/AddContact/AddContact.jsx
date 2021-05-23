@@ -17,7 +17,7 @@ const AddContact = () => {
     const handleValue = (e) => {
         setSearchValue(e.target.value)
         search(e.target.value)
-        console.log(e.target.value);
+        // console.log(e.target.value);
     }
 
     function handleClick() {
