@@ -1,5 +1,6 @@
 import React, {useReducer} from 'react';
 import axios from 'axios';
+import { JSON_API } from '../helpers/constants'
 
 export const contactContext = React.createContext();
 
@@ -25,7 +26,7 @@ const ContactContextProvider = ({children}) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE)
 
     const getContactsData = async () => {
-        let { data } = await axios('http://localhost:8000/contacts')
+        let { data } = await axios(`${JSON_API}/contacts`)
         // console.log(data);
         dispatch({
             type: "GET_CONTACTS_DATA",
@@ -35,18 +36,18 @@ const ContactContextProvider = ({children}) => {
 
 
     const addContact = async(newContact) => {
-        await axios.post('http://localhost:8000/contacts', newContact)
+        await axios.post('${JSON_API}/contacts', newContact)
         getContactsData()
     }
    
 
     const deleteContact = async (id) => {
-        await axios.delete(`http://localhost:8000/contacts/${id}`)
+        await axios.delete(`${JSON_API}/contacts/${id}`)
         getContactsData()
     }
 
     const editContact = async (id) => {
-        let { data } = await axios(`http://localhost:8000/contacts/${id}`)
+        let { data } = await axios(`${JSON_API}/contacts/${id}`)
         // console.log(data);
         dispatch({
             type: "EDIT_CONTACT", 
@@ -55,12 +56,12 @@ const ContactContextProvider = ({children}) => {
     }
 
     const saveContact = async (newEditedContact, history) => {
-        axios.patch(`http://localhost:8000/contacts/${newEditedContact.id}`, newEditedContact)
+        axios.patch(`${JSON_API}/contacts/${newEditedContact.id}`, newEditedContact)
         history.push('/')
     }
 
     async function search(value){
-        let { data } = await axios.get(`http://localhost:8000/contacts?q=${value}`)
+        let { data } = await axios.get(`${JSON_API}/contacts?q=${value}`)
         dispatch({
             type: "SEARCH", 
             payload: data
